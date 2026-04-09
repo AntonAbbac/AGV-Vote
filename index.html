@@ -1,34 +1,27 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>AGV Vote</title>
-	<link rel="stylesheet" href="./styles/First.css">
-	<script></script>
+  <title>Home</title>
 </head>
+<body onload="checkAuth()">
 
-<body>
-	<header>
-		<h1>AGV Vote</h1>
-		<p>Welcome — initial app shell.</p>
-	</header>idfgdfgji
+<h1>Área logada</h1>
 
-	<main id="app">
-		<section id="vote">
-			<div id="callout">
-				<span id="icon">M</span>irella
-			</div>
-			<p>Vote interface placeholder.</p>
-		</section>
-	</main>
+<p id="user"></p>
 
-	<footer>
-		<small>&copy; 2026 AGV Vote</small>
-	</footer>
+<button onclick="logout()">Sair</button>
 
-	<script src="../assets/app.js" defer></script>
+<script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
+<script src="/scripts/apps.js"></script>
+
+<script>
+    // mostra usuário logado
+    const user = pb.authStore.model;
+    if (user) {
+        document.getElementById("user").textContent =
+            "Logado como: " + user.email;
+    }
+</script>
+
 </body>
-
 </html>
