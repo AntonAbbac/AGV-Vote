@@ -1,22 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
 <head>
-  <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/styles/login-page.css">
 </head>
+
 <body>
 
-<h2>Login</h2>
+    <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
+    <script src="/scripts/apps.js"></script>
 
-<input id="email" placeholder="Email">
-<input id="password" type="password" placeholder="Senha">
+    <div class="card">
+        <div class="top">
+            <h1>Bem-Vindo!</h1>
+        </div>
 
-<br><br>
+        <div class="bottom">
+            <h2>Login</h2>
 
-<button onclick="login()">Entrar</button>
-<button onclick="register()">Cadastrar</button>
+            <div class="input-group">
+                <input id="email" type="text" placeholder="@escola">
+            </div>
 
-<script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
-<script src="/scripts/apps.js"></script>
+            <div class="input-group">
+                <input id="password" type="password" placeholder="senha">
+            </div>
+
+            <div class="input-login-group">
+                <button onclick="login()">Entrar</button>
+                <button onclick="register()">Cadastrar</button>
+            </div>
+
+        </div>
+    </div>
 
 </body>
+
 </html>

@@ -7,7 +7,6 @@ async function login() {
 
     try {
         await pb.collection("users").authWithPassword(email, password);
-        alert("Logado");
         window.location.href = "index.html";
     } catch (err) {
         alert("Erro no login");

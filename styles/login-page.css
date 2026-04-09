@@ -1,0 +1,75 @@
+body {
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1588072432836-e10032774350') no-repeat center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 350px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.top {
+  background: linear-gradient(135deg, #0f7c8c, #1aa6b7);
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+}
+
+.top h1 {
+  font-family: cursive;
+  font-size: 28px;
+}
+
+.bottom {
+  background: #e9eef0;
+  padding: 25px;
+}
+
+.bottom h2 {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: #3ddc57;
+  color: white;
+  outline: none;
+}
+
+.input-group input::placeholder {
+  color: white;
+}
+
+.input-login-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  background: #1f6f8b;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #155d73;
+}
