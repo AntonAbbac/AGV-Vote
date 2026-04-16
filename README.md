@@ -1,7 +1,7 @@
 <h1 align="center">
   <img src="./.github/logos/logo-gm2.png" width="250px" />
 <br>
-<img src="./.github/pallets/pallet.png" width="800px" />
+<img src="./.github/pallets/pallet.png" width="400px" />
 <br>AGV-Vote<br>
 <em>"Site do grêmio estudantil"</em>
 <br><br>
@@ -12,7 +12,6 @@
 </a>
 </h1>
 
----
 
 ## ⚠️ CAUTION
 > Este é um projeto completamente livre de quaisquer barreiras institucionais
@@ -24,7 +23,7 @@
 Individual project developed for entry-level to intermediate Obsidian users.
 
 <img src="./.github/logos/logo-agv.png
-" width="150px" />
+" width="170px" />
 
 ---
 
