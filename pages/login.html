@@ -5,36 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/styles/login-page.css">
+    <link rel="stylesheet" href="/styles/login.css">
+    <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
+    <script src="/scripts/apps.js"></script>
 </head>
 
 <body>
 
-    <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
-    <script src="/scripts/apps.js"></script>
 
-    <div class="card">
+    <div class="login-card">
+        <h2>Cadastro</h2>
         <div class="top">
             <h1>Bem-Vindo!</h1>
         </div>
-
         <div class="bottom">
             <h2>Login</h2>
-
-            <div class="input-group">
-                <input id="email" type="text" placeholder="@escola">
-            </div>
-
-            <div class="input-group">
-                <input id="password" type="password" placeholder="senha">
-            </div>
-
-            <div class="input-login-group">
-                <button onclick="login()">Entrar</button>
-                <button onclick="register()">Cadastrar</button>
-            </div>
-
         </div>
+        <form>
+            <div class="input-group">
+
+                <label>Email:</label>
+                <input id="email" type="email" name="email" placeholder="@escola" required>
+
+                <label>Senha:</label>
+                <input id="password" type="password" name="senha" placeholder="senha" required>
+
+                <div class="input-login-group">
+                    <button onclick="login()" type="submit">Enviar</button>
+                    <button onclick="register()">Cadastrar</button>
+                </div>
+            </div>
+        </form>
     </div>
 
 </body>

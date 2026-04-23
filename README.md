@@ -22,7 +22,7 @@
 
 Individual project developed for entry-level to intermediate Obsidian users.
 
-<img src="./.github/logos/logo-agv.png
+<img src="./.github\logos\logo-agv.png
 " width="170px" />
 
 ---

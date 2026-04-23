@@ -6,11 +6,11 @@ body {
   align-items: center;
 }
 
-.card {
+.login-card {
   width: 350px;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .top {
@@ -42,7 +42,7 @@ body {
   width: 100%;
   padding: 12px;
   border: none;
-  border-radius: 25px;
+  border-radius: 100px;
   background: #3ddc57;
   color: white;
   outline: none;
