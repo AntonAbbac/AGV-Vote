@@ -76,6 +76,26 @@
         <p>© 2026 Grêmio Estudantil. Feito com 💙 de estudantes para estudantes.</p>
     </footer>
 
+    <body onload="checkAuth()">
+
+<h1>Área logada</h1>
+
+<p id="user"></p>
+
+<button onclick="logout()">Sair</button>
+
+<script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
+<script src="/scripts/login.js"></script>
+
+<script>
+    // mostra usuário logado
+    const user = pb.authStore.model;
+    if (user) {
+        document.getElementById("user").textContent =
+            "Logado como: " + user.email;
+    }
+</script>
+
 </body>
 
 </html>

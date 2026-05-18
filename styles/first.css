@@ -1,5 +1,5 @@
 #vote {
-  background-color: darkblue;
+  background-color: rgb(234, 234, 255);
 }
 
 #callout {
@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: blue;
+  background-color: rgb(255, 255, 255);
 }
 
 #icon {
