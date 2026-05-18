@@ -2,36 +2,36 @@ const pb = new PocketBase("http://192.168.0.2:8090"); // troca pelo seu IP
 
 // LOGIN
 async function login() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const name = document.getElementById("name").value;
 
 
-    try {
-        await pb.collection("users").authWithPassword(email, password, name);
-        window.location.href = "home.html";
-    } catch (err) {
-        alert("Erro no login");
-        console.log(err);
-    }
+  try {
+    await pb.collection("users").authWithPassword(email, password);
+    window.location.href = "home.html";
+  } catch (err) {
+    alert("Erro no login");
+    console.log(err);
+  }
 }
 
 // CADASTRO
 async function register() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const name = document.getElementById("name").value;
 
-        if (!email.endsWith("@escola.pr.gov.br")) {
-      alert("Use um email institucional válido.");
-      return;
-    }
+  if (!email.endsWith("@escola.pr.gov.br")) {
+    alert("Use um email institucional válido.");
+    return;
+  }
 
-      const data = {
+  const data = {
     email,
-    password: senha,
-    passwordConfirm: senha,
-    nome,
+    password,
+    passwordConfirm: password,
+    name,
     role: "aluno"
   };
 
@@ -54,13 +54,13 @@ async function register() {
 
 // LOGOUT
 function logout() {
-    pb.authStore.clear();
-    window.location.href = "login.html";
+  pb.authStore.clear();
+  window.location.href = "login.html";
 }
 
 // PROTEÇÃO DE PÁGINA
 function checkAuth() {
-    if (!pb.authStore.isValid) {
-        window.location.href = "login.html";
-    }
+  if (!pb.authStore.isValid) {
+    window.location.href = "login.html";
+  }
 }
