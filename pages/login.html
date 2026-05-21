@@ -4,43 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login - AGV Vote</title>
     <link rel="stylesheet" href="/styles/login.css">
     <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
-    <script src="/scripts/login.js"></script>
+    <script src="/pocketbase/login.js"></script>
 </head>
 
 <body>
 
-
     <div class="login-card">
-        <h2>Cadastro</h2>
         <div class="top">
             <h1>Bem-Vindo!</h1>
         </div>
         <div class="bottom">
-            <h2>Login</h2>
+            <h2 id="formTitle">Login</h2>
         </div>
-        <form>
+        <form id="authForm">
             <div class="input-group">
-
-                <label>Nome:</label>
-                <input id="name" type="text" name="nome" placeholder="nome completo" required>
-
+                <div id="nameField" style="display: none;">
+                    <label>Nome:</label>
+                    <input id="name" type="text" name="nome" placeholder="nome completo">
+                </div>
 
                 <label>Email:</label>
-                <input id="email" type="email" name="email" placeholder="@escola" required>
+                <input id="email" type="email" name="email" placeholder="seu@email.com" required>
 
                 <label>Senha:</label>
                 <input id="password" type="password" name="senha" placeholder="senha" required>
 
                 <div class="input-login-group">
-                    <button onclick="login()" type="submit">Login</button>
-                    <button onclick="register()">Cadastrar</button>
+                    <button id="submitBtn" type="button">Login</button>
+                    <button id="toggleBtn" type="button">Ir para Cadastro</button>
                 </div>
             </div>
         </form>
     </div>
+
+    <script>
+        let isLoginMode = true;
+
+        document.getElementById("submitBtn").addEventListener("click", function(e) {
+            e.preventDefault();
+            if (isLoginMode) {
+                login(e);
+            } else {
+                register(e);
+            }
+        });
+
+        document.getElementById("toggleBtn").addEventListener("click", function(e) {
+            e.preventDefault();
+            isLoginMode = !isLoginMode;
+            
+            const nameField = document.getElementById("nameField");
+            const formTitle = document.getElementById("formTitle");
+            const submitBtn = document.getElementById("submitBtn");
+            const toggleBtn = document.getElementById("toggleBtn");
+            
+            if (isLoginMode) {
+                nameField.style.display = "none";
+                formTitle.textContent = "Login";
+                submitBtn.textContent = "Login";
+                toggleBtn.textContent = "Ir para Cadastro";
+                document.getElementById("name").removeAttribute("required");
+            } else {
+                nameField.style.display = "block";
+                formTitle.textContent = "Cadastro";
+                submitBtn.textContent = "Cadastrar";
+                toggleBtn.textContent = "Voltar para Login";
+                document.getElementById("name").setAttribute("required", "required");
+            }
+        });
+    </script>
 
 </body>
 
