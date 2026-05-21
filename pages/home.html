@@ -1,101 +1,96 @@
-<!DOCTYPE html>
-
-<html>
-
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
     <title>Portal do Grêmio Estudantil AGV</title>
-    <meta name="description"
-        content="O Portal do grêmio estudantil AGV foi feito para ajudar estudantes a melhorar nossa escola ALBERTO GOMES VEIGA">
-</head>
-
-<body>
-
+    <meta
+      name="description"
+      content="O Portal do grêmio estudantil AGV foi feito para ajudar estudantes a melhorar nossa escola ALBERTO GOMES VEIGA"
+    />
+    <link rel="stylesheet" href="/styles/home.css" />
+  </head>
+  <body onload="checkAuth()">
     <header>
-        <!-- Menu -->
-        <nav class="menu">
-            <ul>
-                <li><a href="./home.html">Home</a></li>
-                <li><a href="#">Notícias</a></li>
-                <li><a href="#">Suporte</a></li>
-            </ul>
-        </nav>
+      <!-- Menu -->
+      <nav class="menu">
+        <ul>
+          <li><a href="./home.html">Home</a></li>
+          <li><a href="#">Notícias</a></li>
+          <li><a href="#">Suporte</a></li>
+        </ul>
+      </nav>
 
-        <div class="right">
+      <div class="right">
+        <div class="user-icon">
+          <span>👤</span>
+        </div>
 
-            <div class="user-icon">
-                <span>👤</span>
-            </div>
+        <div class="portal">
+          <button>PORTAL AGV</button>
+        </div>
 
-            <div class="portal">
-                <button>PORTAL AGV</button>
-            </div>
+        <div class="menu-icon">
+          <span>☰</span>
+        </div>
+      </div>
 
-            <div class="menu-icon">
-                <span>☰</span>
-            </div>
-
-            <h1>Portal do grêmio estudantil AGV</h1>
+      <h1>Portal do grêmio estudantil AGV</h1>
     </header>
 
     <main>
-        <h1>o que você pode fazer</h1>
-        <p>explore tudo que o grêmio estudantil tem para você!</p>
+      <h1>o que você pode fazer</h1>
+      <p>explore tudo que o grêmio estudantil tem para você!</p>
 
-        <button>
-            <a href="./chapas.html">
-                <h2>conheça as chapas</h2>
-                <p>Veja quem são os candidatos e suas propostas para a escola.</p>
-            </a>
-        </button>
+      <button>
+        <a href="./chapas.html">
+          <h2>conheça as chapas</h2>
+          <p>Veja quem são os candidatos e suas propostas para a escola.</p>
+        </a>
+      </button>
 
-        <button>
-            <h2>participe da eleição</h2>
-            <p>Participe da eleição e escolha quem vai representar você.</p>
-        </button>
+      <button>
+        <h2>participe da eleição</h2>
+        <p>Participe da eleição e escolha quem vai representar você.</p>
+      </button>
 
-        <button>
-            <h2>Eventos</h2>
-            <p>Fique por dentro dos próximos eventos do grêmio.</p>
-        </button>
+      <button>
+        <h2>Eventos</h2>
+        <p>Fique por dentro dos próximos eventos do grêmio.</p>
+      </button>
 
-        <button>
-            <h2>Envie sua sugestão</h2>
-            <p>Envie sugestões e ajude a melhorar nossa escola.</p>
-        </button>
-
+      <button>
+        <h2>Envie sua sugestão</h2>
+        <p>Envie sugestões e ajude a melhorar nossa escola.</p>
+      </button>
     </main>
 
-
     <footer>
-        <p>R. Júlia da Costa, 780 - Campo Grande, Paranaguá - PR, 83203-060</p>
+      <p>R. Júlia da Costa, 780 - Campo Grande, Paranaguá - PR, 83203-060</p>
 
-        <p>(41) 3423-3819</p>
+      <p>(41) 3423-3819</p>
 
-        <p>colegioagv2026@gmail.com</p>
+      <p>colegioagv2026@gmail.com</p>
 
-        <p>© 2026 Grêmio Estudantil. Feito com 💙 de estudantes para estudantes.</p>
+      <p>
+        © 2026 Grêmio Estudantil. Feito com 💙 de estudantes para estudantes.
+      </p>
     </footer>
 
-    <body onload="checkAuth()">
+    <div class="login-area">
+      <h1>Área logada</h1>
+      <p id="user"></p>
+      <button onclick="logout()">Sair</button>
+    </div>
 
-        <h1>Área logada</h1>
-
-        <p id="user"></p>
-
-        <button onclick="logout()">Sair</button>
-
-        <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
-        <script src="/scripts/login.js"></script>
-
-        <script>
-            // mostra usuário logado
-            const user = pb.authStore.model;
-            if (user) {
-                document.getElementById("user").textContent =
-                    "Logado como: " + user.email;
-            }
-        </script>
-
-    </body>
-
+    <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
+    <script src="/pocketbase/login.js"></script>
+    <script>
+      // mostra usuário logado
+      const user = pb.authStore.model;
+      if (user) {
+        document.getElementById("user").textContent =
+          "Logado como: " + user.email;
+      }
+    </script>
+  </body>
 </html>

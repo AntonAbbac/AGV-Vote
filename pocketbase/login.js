@@ -1,4 +1,4 @@
-const pb = new PocketBase("http://127.0.0.1:8090");
+const pb = new PocketBase("http://192.168.0.2:8090");
 
 // LOGIN
 async function login(event) {
@@ -33,6 +33,7 @@ async function register(event) {
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value;
   const name = document.getElementById("name").value.trim();
+  const role = document.getElementById("role").value;
 
   if (!email || !password || !name) {
     alert("Todos os campos são obrigatórios");
@@ -49,12 +50,17 @@ async function register(event) {
     return;
   }
 
+  if (!["student", "leader", "admin"].includes(role)) {
+    alert("Função inválida");
+    return;
+  }
+
   const data = {
     email,
     password,
     passwordConfirm: password,
     name,
-    role: "aluno"
+    role
   };
 
   try {
@@ -63,6 +69,7 @@ async function register(event) {
     document.getElementById("email").value = "";
     document.getElementById("password").value = "";
     document.getElementById("name").value = "";
+    document.getElementById("role").value = "student";
 
     // Volta para modo login
     document.getElementById("toggleBtn").click();

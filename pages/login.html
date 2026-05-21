@@ -26,6 +26,15 @@
                     <input id="name" type="text" name="nome" placeholder="nome completo">
                 </div>
 
+                <div id="roleField" style="display: none;">
+                    <label>Função:</label>
+                    <select id="role" name="role">
+                        <option value="student" selected>student</option>
+                        <option value="leader">leader</option>
+                        <option value="admin">admin</option>
+                    </select>
+                </div>
+
                 <label>Email:</label>
                 <input id="email" type="email" name="email" placeholder="seu@email.com" required>
 
@@ -57,22 +66,27 @@
             isLoginMode = !isLoginMode;
             
             const nameField = document.getElementById("nameField");
+            const roleField = document.getElementById("roleField");
             const formTitle = document.getElementById("formTitle");
             const submitBtn = document.getElementById("submitBtn");
             const toggleBtn = document.getElementById("toggleBtn");
             
             if (isLoginMode) {
                 nameField.style.display = "none";
+                roleField.style.display = "none";
                 formTitle.textContent = "Login";
                 submitBtn.textContent = "Login";
                 toggleBtn.textContent = "Ir para Cadastro";
                 document.getElementById("name").removeAttribute("required");
+                document.getElementById("role").removeAttribute("required");
             } else {
                 nameField.style.display = "block";
+                roleField.style.display = "block";
                 formTitle.textContent = "Cadastro";
                 submitBtn.textContent = "Cadastrar";
                 toggleBtn.textContent = "Voltar para Login";
                 document.getElementById("name").setAttribute("required", "required");
+                document.getElementById("role").setAttribute("required", "required");
             }
         });
     </script>
