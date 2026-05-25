@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Detalhes da Chapa</title>
+    <link rel="stylesheet" href="/styles/home.css" />
+    <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="menu">
+        <a href="./home.html">Home</a>
+        <a href="#">Notícias</a>
+        <a href="#">Suporte</a>
+      </nav>
+
+      <div>
+        <span>👤</span>
+        <button class="button">PORTAL AGV</button>
+      </div>
+
+      <span>☰</span>
+    </header>
+
+    <a href="home.html">Voltar para o Início</a>
+
+    <hr />
+
+    <h1 id="chapa-nome">Carregando nome...</h1>
+    <p id="chapa-slogan"><i>Carregando slogan...</i></p>
+
+    <h3>Nossas Propostas:</h3>
+    <p id="chapa-propostas">Carregando propostas...</p>
+
+    <script>
+      // 1. Conecta ao PocketBase
+      const pb = new PocketBase("http://192.168.0.158:8090");
+
+      async function carregarChapa() {
+        // 2. Pega o ID da URL (?id=XXXXXXXXX)
+        const params = new URLSearchParams(window.location.search);
+        const idChapa = params.get("id");
+
+        if (!idChapa) {
+          alert("Nenhuma chapa foi selecionada!");
+          window.location.href = "home.html";
+          return;
+        }
+
+        try {
+          // 3. Busca a chapa específica no PocketBase usando o ID
+          const chapa = await pb.collection("chapas").getOne(idChapa);
+
+          // 4. Injeta os dados nos elementos do HTML
+          // Usamos textContent por segurança (evita que injetem scripts maliciosos)
+          document.getElementById("chapa-nome").textContent = chapa.nome;
+          document.getElementById("chapa-slogan").textContent = chapa.slogan;
+          document.getElementById("chapa-propostas").textContent =
+            chapa.propostas;
+        } catch (erro) {
+          console.error("Erro ao buscar chapa:", erro);
+          alert("Chapa não encontrada.");
+        }
+      }
+
+      // Executa a função assim que a página abre
+      carregarChapa();
+    </script>
+  </body>
+</html>

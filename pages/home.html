@@ -8,6 +8,8 @@
       content="O Portal do grêmio estudantil AGV foi feito para ajudar estudantes a melhorar nossa escola ALBERTO GOMES VEIGA"
     />
     <link rel="stylesheet" href="/styles/home.css" />
+    <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
+    <script src="/pocketbase/login.js"></script>
   </head>
   <body onload="checkAuth()">
     <header>
@@ -40,18 +42,24 @@
       </button>
 
       <button>
-        <h2>participe da eleição</h2>
-        <p>Participe da eleição e escolha quem vai representar você.</p>
+        <a href="./votacao.html">
+          <h2>participe da eleição</h2>
+          <p>Participe da eleição e escolha quem vai representar você.</p>
+        </a>
       </button>
 
       <button>
-        <h2>Eventos</h2>
-        <p>Fique por dentro dos próximos eventos do grêmio.</p>
+        <a href="./eventos.html">
+          <h2>Eventos</h2>
+          <p>Fique por dentro dos próximos eventos do grêmio.</p>
+        </a>
       </button>
 
       <button>
-        <h2>Envie sua sugestão</h2>
-        <p>Envie sugestões e ajude a melhorar nossa escola.</p>
+        <a href="sugestao.html">
+          <h2>Envie sua sugestão</h2>
+          <p>Envie sugestões e ajude a melhorar nossa escola.</p>
+        </a>
       </button>
     </main>
 
@@ -73,8 +81,6 @@
       <button onclick="logout()">Sair</button>
     </div>
 
-    <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
-    <script src="/pocketbase/login.js"></script>
     <script>
       // mostra usuário logado
       const user = pb.authStore.model;
