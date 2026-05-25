@@ -7,9 +7,41 @@
 }
 
 body {
-  background-color: rgb(89, 27, 189);
+  background: linear-gradient(120deg, #044066, #00d1ff);
 }
 
 #icon {
   color: brown;
+}
+
+.button {
+  background-color: #2a3f2d;
+  width: 150px;
+  border-radius: 25px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  align-items: right;
+}
+.menu {
+  display: flex;
+  justify-content: right;
+  font-size: 17px;
+  gap: 10px;
+  background: linear-gradient(45deg, #ffffff, #ffffff);
+  border-radius: 8px;
+  padding: 15px 10px;
+  word-spacing: 8px;
+}
+
+.menu a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.menu a:hover,
+.menu a:focus {
+  color: #1f6f8b;
 }

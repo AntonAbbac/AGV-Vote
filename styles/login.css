@@ -1,71 +1,143 @@
+/* Reset and base */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   height: 100vh;
-  background: url('https://images.unsplash.com/photo-1588072432836-e10032774350') no-repeat center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: url("https://images.unsplash.com/photo-1588072432836-e10032774350")
+    no-repeat center/cover;
 }
 
+/* Card */
 .login-card {
-  width: 350px;
-  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
   overflow: hidden;
+  border-radius: 5px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
 }
 
+/* Top */
 .top {
-  background: linear-gradient(135deg, #0f7c8c, #1aa6b7);
-  padding: 40px 20px;
+  background: linear-gradient(120deg, #044066, #00d1ff);
+  padding: 120px 40px;
   text-align: center;
   color: white;
+  opacity: 0.95;
 }
 
 .top h1 {
-  font-family: cursive;
-  font-size: 28px;
+  font-family: Montserrat, sans-serif;
+  font-size: 36px;
+  margin: 0;
 }
 
-.bottom {
-  background: #e9eef0;
-  padding: 25px;
-}
-
-.bottom h2 {
-  margin-bottom: 20px;
-}
-
+/* Inputs container */
 .input-group {
-  margin-bottom: 15px;
+  background: #ffffff;
+  color: black;
+  padding: 20px 40px;
+  opacity: 0.95;
 }
 
+/* Inputs (shared) */
 .input-group input {
+  display: block;
   width: 100%;
-  padding: 12px;
+  margin-bottom: 15px;
+  padding: 15px 40px 15px 48px;
   border: none;
-  border-radius: 100px;
+  border-radius: 25px;
   background: #3ddc57;
+  background-repeat: no-repeat;
+  background-position: 16px center;
+  background-size: 20px 20px;
   color: white;
+}
+
+.input-group input:focus {
   outline: none;
+  background-color: #36b44a;
+}
+.input-group input::placeholder {
+  color: rgb(255, 250, 250);
 }
 
-.input-group input::placeholder {
+/* specific input icons */
+.input-group input.name {
+  background-image: url("/assets/user.png");
+}
+.input-group input.login {
+  background-image: url("/assets/mail.png");
+}
+.input-group input.register {
+  background-image: url("/assets/lock.png");
+}
+
+/* Select / role (left icon) */
+.role,
+.input-group select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  padding: 15px 40px 15px 48px;
+  border: none;
+  border-radius: 25px;
+  margin-bottom: 15px;
+  background: #3ddc57 url("/assets/arrow.png") no-repeat 16px center;
   color: white;
 }
 
+.input-group select:focus {
+  outline: none;
+  background-color: #36b44a;
+}
+
+.input-group select option {
+  background: white;
+  color: black;
+  border-radius: 20px;
+}
+
+/* header */
+.input-group-header {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #1b1919;
+}
+
+/* buttons */
 .input-login-group {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 10px;
+  padding: 10px;
   margin-bottom: 20px;
 }
 
 button {
-  width: 100%;
-  padding: 12px;
+  flex: 1;
+  height: 50px;
   border: none;
-  border-radius: 25px;
+  border-radius: 15px;
   background: #1f6f8b;
   color: white;
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
   font-size: 16px;
   cursor: pointer;
 }

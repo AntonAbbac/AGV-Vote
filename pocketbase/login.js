@@ -1,4 +1,4 @@
-const pb = new PocketBase("http://192.168.0.2:8090");
+const pb = new PocketBase("http://192.168.0.158:8090");
 
 // LOGIN
 async function login(event) {
@@ -60,7 +60,7 @@ async function register(event) {
     password,
     passwordConfirm: password,
     name,
-    role
+    role,
   };
 
   try {
@@ -75,7 +75,8 @@ async function register(event) {
     document.getElementById("toggleBtn").click();
   } catch (erro) {
     console.log(erro);
-    const errorMsg = erro.data?.message || erro.message || "Erro ao criar conta";
+    const errorMsg =
+      erro.data?.message || erro.message || "Erro ao criar conta";
     alert("Erro ao criar conta: " + errorMsg);
   }
 }
@@ -92,4 +93,3 @@ function checkAuth() {
     window.location.href = "login.html";
   }
 }
-
