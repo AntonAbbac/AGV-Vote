@@ -1,4 +1,4 @@
-const pb = new PocketBase("http://192.168.0.158:8090");
+const pb = new PocketBase("http://10.220.27.139:8090");
 
 // 2. Proteção de Página: Verifica se o usuário pode estar aqui
 function permissionverify() {
