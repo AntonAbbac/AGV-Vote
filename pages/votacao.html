@@ -1,36 +1,42 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>votação</title>
+    <title>Votação — AGV Vote</title>
     <link rel="stylesheet" href="/styles/home.css" />
+    <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
+    <script src="/pocketbase/root.js"></script>
+    <script src="/pocketbase/votacao.js" defer></script>
   </head>
-
-  <body>
+  <body onload="initVotacao()">
     <header>
-      <!-- Menu -->
       <nav class="menu">
         <a href="home.html">Home</a>
         <a href="#">Notícias</a>
         <a href="#">Suporte</a>
       </nav>
-
       <div>
         <span>👤</span>
         <button class="button">PORTAL AGV</button>
       </div>
-
       <span>☰</span>
     </header>
 
+    <main>
+      <h1>Eleição do Grêmio Estudantil</h1>
+      <p>Escolha sua chapa e vote! Cada aluno tem direito a um voto.</p>
+
+      <!-- As chapas são renderizadas aqui pelo JS -->
+      <div id="chapas-container">
+        <p>Carregando chapas...</p>
+      </div>
+    </main>
+
     <footer>
       <p>R. Júlia da Costa, 780 - Campo Grande, Paranaguá - PR, 83203-060</p>
-
       <p>(41) 3423-3819</p>
-
       <p>colegioagv2026@gmail.com</p>
-
       <p>
         © 2026 Grêmio Estudantil. Feito com 💙 de estudantes para estudantes.
       </p>
