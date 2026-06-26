@@ -1,7 +1,5 @@
 // pocketbase/config.js
 
-const POCKETBASE_PORT = "8090";
-const POCKETBASE_URL = `http://${window.location.hostname}:${POCKETBASE_PORT}`;
+const POCKETBASE_URL = "http://192.168.0.32:8090";
 
 const pb = new PocketBase(POCKETBASE_URL);
-
