@@ -1,116 +1,99 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - AGV Vote</title>
-    <link rel="stylesheet" href="/styles/login.css" />
-    <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
-    <script src="/pocketbase/login.js"></script>
-  </head>
 
-  <body>
-    <div class="login-card">
-      <div class="top">
-        <h1>Bem-Vindo!</h1>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - AGV Vote</title>
+  <link rel="stylesheet" href="/styles/login.css" />
+  <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
+  <script src="/pocketbase/login.js"></script>
+  <script src="/pocketbase/root.js"></script>
+</head>
 
-      <form id="authForm">
-        <div class="input-group">
-          <header id="formTitle" class="input-group-header">Login</header>
-
-          <div id="nameField" style="display: none">
-            <input
-              class="name"
-              id="name"
-              type="text"
-              name="nome"
-              placeholder="nome"
-            />
-          </div>
-
-          <div id="roleField" style="display: none">
-            <select class="role" id="role" name="role">
-              <option value="student" selected>student</option>
-              <option value="leader">leader</option>
-              <option value="admin">admin</option>
-            </select>
-          </div>
-
-          <input
-            class="login"
-            id="email"
-            type="email"
-            name="email"
-            placeholder="@escola"
-            required
-          />
-
-          <input
-            class="register"
-            id="password"
-            type="password"
-            name="senha"
-            placeholder="senha"
-            required
-          />
-
-          <div class="input-login-group">
-            <button id="submitBtn" type="button">Login</button>
-            <button id="toggleBtn" type="button">Cadastro</button>
-          </div>
-        </div>
-      </form>
+<body>
+  <div class="login-card">
+    <div class="top">
+      <h1>Bem-Vindo!</h1>
     </div>
 
-    <script>
-      let isLoginMode = true;
+    <form id="authForm">
+      <div class="input-group">
+        <header id="formTitle" class="input-group-header">Login</header>
 
-      document
-        .getElementById("submitBtn")
-        .addEventListener("click", function (e) {
-          e.preventDefault();
-          if (isLoginMode) {
-            login(e);
-          } else {
-            register(e);
-          }
-        });
+        <div id="nameField" style="display: none">
+          <input class="name" id="name" type="text" name="nome" placeholder="nome" />
+        </div>
 
-      document
-        .getElementById("toggleBtn")
-        .addEventListener("click", function (e) {
-          e.preventDefault();
-          isLoginMode = !isLoginMode;
+        <div id="roleField" style="display: none">
+          <select class="role" id="role" name="role">
+            <option value="student" selected>student</option>
+            <option value="leader">leader</option>
+            <option value="admin">admin</option>
+          </select>
+        </div>
 
-          const nameField = document.getElementById("nameField");
-          const roleField = document.getElementById("roleField");
-          const formTitle = document.getElementById("formTitle");
-          const submitBtn = document.getElementById("submitBtn");
-          const toggleBtn = document.getElementById("toggleBtn");
+        <input class="login" id="email" type="email" name="email" placeholder="@escola" required />
 
-          if (isLoginMode) {
-            nameField.style.display = "none";
-            roleField.style.display = "none";
-            formTitle.textContent = "Login";
-            submitBtn.textContent = "Login";
-            toggleBtn.textContent = "Cadastro";
-            document.getElementById("name").removeAttribute("required");
-            document.getElementById("role").removeAttribute("required");
-          } else {
-            nameField.style.display = "block";
-            roleField.style.display = "block";
-            formTitle.textContent = "Cadastro";
-            submitBtn.textContent = "Cadastrar";
-            toggleBtn.textContent = "Cancelar";
-            document
-              .getElementById("name")
-              .setAttribute("required", "required");
-            document
-              .getElementById("role")
-              .setAttribute("required", "required");
-          }
-        });
-    </script>
-  </body>
+        <input class="register" id="password" type="password" name="senha" placeholder="senha" required />
+
+        <div class="input-login-group">
+          <button id="submitBtn" type="button">Login</button>
+          <button id="toggleBtn" type="button">Cadastro</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    let isLoginMode = true;
+
+    document
+      .getElementById("submitBtn")
+      .addEventListener("click", function (e) {
+        e.preventDefault();
+        if (isLoginMode) {
+          login(e);
+        } else {
+          register(e);
+        }
+      });
+
+    document
+      .getElementById("toggleBtn")
+      .addEventListener("click", function (e) {
+        e.preventDefault();
+        isLoginMode = !isLoginMode;
+
+        const nameField = document.getElementById("nameField");
+        const roleField = document.getElementById("roleField");
+        const formTitle = document.getElementById("formTitle");
+        const submitBtn = document.getElementById("submitBtn");
+        const toggleBtn = document.getElementById("toggleBtn");
+
+        if (isLoginMode) {
+          nameField.style.display = "none";
+          roleField.style.display = "none";
+          formTitle.textContent = "Login";
+          submitBtn.textContent = "Login";
+          toggleBtn.textContent = "Cadastro";
+          document.getElementById("name").removeAttribute("required");
+          document.getElementById("role").removeAttribute("required");
+        } else {
+          nameField.style.display = "block";
+          roleField.style.display = "block";
+          formTitle.textContent = "Cadastro";
+          submitBtn.textContent = "Cadastrar";
+          toggleBtn.textContent = "Cancelar";
+          document
+            .getElementById("name")
+            .setAttribute("required", "required");
+          document
+            .getElementById("role")
+            .setAttribute("required", "required");
+        }
+      });
+  </script>
+</body>
+
 </html>

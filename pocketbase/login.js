@@ -1,4 +1,4 @@
-const pb = new PocketBase("http://10.220.27.139:8090");
+
 
 // LOGIN
 async function login(event) {

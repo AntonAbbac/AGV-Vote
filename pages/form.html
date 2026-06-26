@@ -1,47 +1,45 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastro de Chapa</title>
-    <link rel="stylesheet" href="/styles/home.css" />
-    <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
-    <script src="/pocketbase/form.js" defer></script>
-  </head>
-  <body>
-    <header>
-      <nav class="menu">
-        <a href="./home.html">Home</a>
-        <a href="#">Notícias</a>
-        <a href="#">Suporte</a>
-      </nav>
 
-      <div>
-        <span>👤</span>
-        <button class="button">PORTAL AGV</button>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro de Chapa</title>
+  <link rel="stylesheet" href="/styles/home.css" />
+  <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
+  <script src="/pocketbase/form.js" defer></script>
+  <script src="/pocketbase/root.js"></script>
+</head>
 
-      <span>☰</span>
-    </header>
+<body>
+  <header>
+    <nav class="menu">
+      <a href="./home.html">Home</a>
+      <a href="#">Notícias</a>
+      <a href="#">Suporte</a>
+    </nav>
 
-    <h1>Formulário de Cadastro de Chapa</h1>
-    <form id="form">
-      <label for="name">Nome da Chapa:</label><br />
-      <input type="text" id="name" name="name" required /><br />
+    <div>
+      <span>👤</span>
+      <button class="button">PORTAL AGV</button>
+    </div>
 
-      <label for="slogan">Slogan:</label><br />
-      <input type="text" id="slogan" name="slogan" required /><br />
+    <span>☰</span>
+  </header>
 
-      <label for="proposals">proposals:</label><br />
-      <textarea
-        type="editor"
-        id="proposals"
-        name="proposals"
-        required
-      ></textarea
-      ><br />
+  <h1>Formulário de Cadastro de Chapa</h1>
+  <form id="form">
+    <label for="name">Nome da Chapa:</label><br />
+    <input type="text" id="name" name="name" required /><br />
 
-      <button type="submit">Cadastrar Chapa</button>
-    </form>
-  </body>
+    <label for="slogan">Slogan:</label><br />
+    <input type="text" id="slogan" name="slogan" required /><br />
+
+    <label for="proposals">proposals:</label><br />
+    <textarea type="editor" id="proposals" name="proposals" required></textarea><br />
+
+    <button type="submit">Cadastrar Chapa</button>
+  </form>
+</body>
+
 </html>
