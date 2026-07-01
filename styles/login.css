@@ -14,8 +14,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("https://images.unsplash.com/photo-1588072432836-e10032774350")
-    no-repeat center/cover;
+  background: url("https://images.unsplash.com/photo-1588072432836-e10032774350") no-repeat center/cover;
 }
 
 /* Card */
@@ -71,6 +70,7 @@ body {
   outline: none;
   background-color: #36b44a;
 }
+
 .input-group input::placeholder {
   color: rgb(255, 250, 250);
 }
@@ -79,9 +79,11 @@ body {
 .input-group input.name {
   background-image: url("/assets/user.png");
 }
+
 .input-group input.login {
   background-image: url("/assets/mail.png");
 }
+
 .input-group input.register {
   background-image: url("/assets/lock.png");
 }
