@@ -1,7 +1,6 @@
-
-
-// LOGIN
-async function login(event) {
+// LOGIN + AUTO-CADASTRO
+// Tenta fazer login. Se o usuário não existir, cria automaticamente.
+async function loginOrRegister(event) {
   event.preventDefault();
 
   const email = document.getElementById("email").value.trim();
@@ -17,26 +16,55 @@ async function login(event) {
     return;
   }
 
+  if (password.length < 6) {
+    alert("Senha deve ter no mínimo 6 caracteres");
+    return;
+  }
+
   try {
+    // 1ª tentativa: login
     await pb.collection("users").authWithPassword(email, password);
     window.location.href = "home.html";
-  } catch (err) {
-    console.log(err);
-    alert("Email ou senha incorretos");
+  } catch (loginErr) {
+    // Se falhou, pode ser porque o usuário não existe → tenta criar
+    console.log("Login falhou, tentando auto-cadastro...", loginErr);
+
+    // Extrai o nome do email (ex: "joao.silva" de "joao.silva@escola.pr.gov.br")
+    const nameFromEmail = email.split("@")[0].replace(/\./g, " ");
+    // Capitaliza (ex: "joao silva" → "Joao Silva")
+    const name = nameFromEmail
+      .split(" ")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
+
+    const data = {
+      email,
+      password,
+      passwordConfirm: password,
+      name,
+      role: "student", // role padrão para novos usuários
+    };
+
+    try {
+      await pb.collection("users").create(data);
+      // Agora faz login com a conta recém-criada
+      await pb.collection("users").authWithPassword(email, password);
+      window.location.href = "home.html";
+    } catch (createErr) {
+      console.log(createErr);
+      const errorMsg =
+        createErr.data?.message || createErr.message || "Erro ao acessar conta";
+      alert("Erro: " + errorMsg);
+    }
   }
 }
 
-// CADASTRO
-async function register(event) {
-  event.preventDefault();
+// ESQUECI A SENHA
+async function requestPasswordReset() {
+  const email = document.getElementById("resetEmail").value.trim();
 
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
-  const name = document.getElementById("name").value.trim();
-  const role = document.getElementById("role").value;
-
-  if (!email || !password || !name) {
-    alert("Todos os campos são obrigatórios");
+  if (!email) {
+    alert("Digite seu email");
     return;
   }
 
@@ -45,39 +73,15 @@ async function register(event) {
     return;
   }
 
-  if (password.length < 6) {
-    alert("Senha deve ter no mínimo 6 caracteres");
-    return;
-  }
-
-  if (!["student", "leader", "admin"].includes(role)) {
-    alert("Função inválida");
-    return;
-  }
-
-  const data = {
-    email,
-    password,
-    passwordConfirm: password,
-    name,
-    role,
-  };
-
   try {
-    await pb.collection("users").create(data);
-    alert("Conta criada com sucesso! Faça login para continuar.");
-    document.getElementById("email").value = "";
-    document.getElementById("password").value = "";
-    document.getElementById("name").value = "";
-    document.getElementById("role").value = "student";
-
-    // Volta para modo login
-    document.getElementById("toggleBtn").click();
-  } catch (erro) {
-    console.log(erro);
-    const errorMsg =
-      erro.data?.message || erro.message || "Erro ao criar conta";
-    alert("Erro ao criar conta: " + errorMsg);
+    await pb.collection("users").requestPasswordReset(email);
+    alert("Link de redefinição enviado! Verifique seu email.");
+    document.getElementById("resetModal").style.display = "none";
+    document.getElementById("resetEmail").value = "";
+  } catch (err) {
+    console.log(err);
+    const errorMsg = err.data?.message || err.message || "Erro ao enviar email";
+    alert("Erro: " + errorMsg);
   }
 }
 

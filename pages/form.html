@@ -1,45 +1,57 @@
 <!doctype html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cadastro de Chapa</title>
+  <title>Cadastro de Chapa — AGV Vote</title>
   <link rel="stylesheet" href="/styles/home.css" />
   <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
   <script src="/pocketbase/form.js" defer></script>
   <script src="/pocketbase/root.js"></script>
 </head>
-
 <body>
-  <header>
-    <nav class="menu">
-      <a href="./home.html">Home</a>
-      <a href="#">Notícias</a>
-      <a href="#">Suporte</a>
-    </nav>
 
-    <div>
-      <span>👤</span>
-      <button class="button">PORTAL AGV</button>
+  <!-- Barra de navegação -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="./home.html">HOME</a>
+      <a href="./home.html#sobre">SOBRE</a>
     </div>
+    <div class="nav-center">
+      <span>GRÊMIO ESTUDANTIL</span>
+      <small>barra de navegação</small>
+    </div>
+    <div class="nav-right">
+      <a href="#">NOTICIAS</a>
+      <a href="#">SUPORTE</a>
+    </div>
+  </nav>
 
-    <span>☰</span>
-  </header>
+  <main class="form-container">
+    <h1>Formulário de Cadastro de Chapa</h1>
+    <form id="form">
+      <label for="name">Nome da Chapa:</label><br />
+      <input type="text" id="name" name="name" required /><br />
 
-  <h1>Formulário de Cadastro de Chapa</h1>
-  <form id="form">
-    <label for="name">Nome da Chapa:</label><br />
-    <input type="text" id="name" name="name" required /><br />
+      <label for="slogan">Slogan:</label><br />
+      <input type="text" id="slogan" name="slogan" required /><br />
 
-    <label for="slogan">Slogan:</label><br />
-    <input type="text" id="slogan" name="slogan" required /><br />
+      <label for="proposals">Propostas:</label><br />
+      <textarea id="proposals" name="proposals" required></textarea><br />
 
-    <label for="proposals">proposals:</label><br />
-    <textarea type="editor" id="proposals" name="proposals" required></textarea><br />
+      <button type="submit">Cadastrar Chapa</button>
+    </form>
+  </main>
 
-    <button type="submit">Cadastrar Chapa</button>
-  </form>
+  <!-- Footer -->
+  <footer>
+    <p>R. Júlia da Costa, 780 - Campo Grande, Paranaguá - PR, 83203-060</p>
+    <div class="footer-contacts">
+      <span>(41) 3423-3819</span>
+      <span>pngalbertogomes@seed.pr.gov.br</span>
+    </div>
+    <p class="copyright">© 2026 Rafael N. Silva. Todos os direitos reservados.</p>
+  </footer>
+
 </body>
-
 </html>
