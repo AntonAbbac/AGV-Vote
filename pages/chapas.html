@@ -6,16 +6,17 @@
   <title>Chapas — AGV Vote</title>
   <link rel="stylesheet" href="/styles/home.css" />
   <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
-  <script src="/pocketbase/login.js"></script>
+  <script src="/pocketbase/chapas.js"></script>
   <script src="/pocketbase/root.js"></script>
 </head>
-<body onload="checkAuth()">
+<body onload="initChapas()">
 
   <!-- Barra de navegação -->
   <nav class="navbar">
     <div class="nav-left">
       <a href="./home.html">HOME</a>
       <a href="./home.html#sobre">SOBRE</a>
+      <a href="./form.html">CADASTRE SUA CHAPA</a>
     </div>
     <div class="nav-center">
       <span>GRÊMIO ESTUDANTIL</span>
@@ -34,27 +35,9 @@
   </header>
 
   <!-- Grid de Chapas -->
-  <main class="chapas-grid">
-    <article class="chapa-card">
-      <div class="chapa-img">colocar imagem de chapa</div>
-      <a href="./votacao.html" class="btn-votar">VOTAR</a>
-    </article>
-
-    <article class="chapa-card">
-      <div class="chapa-img">colocar imagem de chapa</div>
-      <a href="./votacao.html" class="btn-votar">VOTAR</a>
-    </article>
-
-    <article class="chapa-card">
-      <div class="chapa-img">colocar imagem de chapa</div>
-      <a href="./votacao.html" class="btn-votar">VOTAR</a>
-    </article>
-
-    <article class="chapa-card">
-      <div class="chapa-img">colocar imagem de chapa</div>
-      <a href="./votacao.html" class="btn-votar">VOTAR</a>
-    </article>
-  </main>
+    <div id="chapas-container">
+      <p>Carregando chapas...</p>
+    </div>
 
   <!-- Sobre Section -->
   <section id="sobre" class="sobre">

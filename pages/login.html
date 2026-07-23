@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - AGV Vote</title>
-  <link rel="stylesheet" href="" />
+  <link rel="stylesheet" href="/styles/login.css" />
   <script src="https://unpkg.com/pocketbase/dist/pocketbase.umd.js"></script>
   <script src="/pocketbase/login.js"></script>
   <script src="/pocketbase/root.js"></script>
@@ -15,13 +15,13 @@
       <h1>Login</h1>
     </div>
 
-    <form id="authForm">
+    <form id="authForm" onsubmit="loginOrRegister(event)">
       <div class="input-group">
         <input class="login" id="email" type="email" name="email" placeholder="Volume de email" required />
         <input class="register" id="password" type="password" name="senha" placeholder="Volume de senha" required />
 
         <div class="input-login-group">
-          <button id="submitBtn" type="button">Botão de login</button>
+          <button id="submitBtn" type="submit">Botão de login</button>
         </div>
 
         <div class="forgot-password">
